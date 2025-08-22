@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지 변경</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-size: 16px;
+    }
+    nav{
+      width: 100%;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    nav ul{
+      max-width: 1680px;
+      display: flex;
+      justify-content: flex-start;
+      gap: 20px;
+    }
+    nav ul li a{
+      font-size: 12px;
+    }
+    .slideBox{
+      height: calc(100vh - 56px);
+      overflow: hidden;
+      position: relative;
+    }
+    .slideBox ul{
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .slideBox ul li{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: 0.5s;
+    }
+    .slideBox ul li.on{
+      opacity: 1;
+    }
+    .slideBox ul li .txt{
+      position: absolute;
+      left: calc((100% - 1200px) / 2);
+      top: calc(50% - 55px);
+      transform: translateY(-50%);
+      z-index: 11111;
+    }
+    .slideBox ul li .txt.type02{
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      text-align: center;
+    }
+    .slideBox ul li .txt .t01{
+      font-size: 35px;
+      font-weight: 500;
+      transform: translateY(50px);
+      opacity: 0;
+      transition: 0.8s;
+      transition-delay: 0.5s;
+    }
+    .slideBox ul li .txt .t02{
+      font-size: 15px;
+      margin-top: 20px;
+      transform: translateY(40px);
+      opacity: 0;
+      transition: 0.8s;
+      transition-delay: 0.8s;
+    }
+    .slideBox ul li .txt.on .t01{
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .slideBox ul li .txt.on .t02{
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .slideBox ul li img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .slideBox .btns{
+      max-width: 1800px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .slideBox .btns button{
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 3px;
+      color: #fff;
+      font-size: 25px;
+    }
+    .control{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .control .count{
+      background: rgba(0,0,0,0.4);
+      border-radius: 25px;
+      padding: 3px 10px;
+      font-size: 13px;
+      color: #fff;
+    }
+    .control > button{
+      background: transparent;
+    }
+    .control > button svg{
+      width: 25px;
+      height: 25px;
+    }
+    .control > button.play{
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <a href="#none">여성</a>
+        </li>
+        <li>
+          <a href="#none">남성</a>
+        </li>
+        <li>
+          <a href="#none">컬렉션</a>
+        </li>
+        <li>
+          <a href="#none">데님</a>
+        </li>
+        <li>
+          <a href="#none">가방</a>
+        </li>
+        <li>
+          <a href="#none">GUESS JEANS</a>
+        </li>
+        <li>
+          <a href="#none">비디오 클립</a>
+        </li>
+        <li>
+          <a href="#none">시즌오프</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <section>
+    <div class="slideBox">
+      <ul>
+        <li class="on">
+          <img src="img/slide01.jpg" alt="">
+        </li>
+        <li>
+          <img src="img/slide02.jpg" alt="">
+          <div class="txt">
+            <div class="t01">DENIM IS OUR WORLD</div>
+            <div class="t02">청량한 인디고 컬러 속 경쾌하게 스며든 NMIXX의 에너지</div>
+          </div>
+        </li>
+        <li>
+          <img src="img/slide03.jpg" alt="">
+          <div class="txt type02">
+            <div class="t01">COOL TOUCH DENIM</div>
+            <div class="t02">더운 날엔 더 가볍게, 게스 쿨 터치 데님을 만나보세요.</div>
+          </div>
+        </li>
+        <li>
+          <img src="img/slide04.jpg" alt="">
+          <div class="txt type02">
+            <div class="t01">ONLINE EXCLUSIVES</div>
+            <div class="t02">뉴 시즌을 특별하게 만들어줄 온라인 단독 컬렉션 Part 2</div>
+          </div>
+        </li>
+        <li>
+          <img src="img/slide05.webp" alt="">
+          <div class="txt type02">
+            <div class="t01">SPRING NEW COLLECTION</div>
+            <div class="t02">싱그러움이 피어나는 SS 시즌 컬렉션</div>
+          </div>
+        </li>
+        <li>
+          <img src="img/slide06.jpg" alt="">
+          <div class="txt type02">
+            <div class="t01">NEW, NOW, NEXT</div>
+            <div class="t02">GUESS ft. NMIXX SUMMER HANDBAG</div>
+          </div>
+        </li>
+      </ul>
+      <div class="control">
+        <div class="count"></div>
+        <button type="button" class="stop" onclick="stopBtn()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16">
+            <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>
+          </svg>
+        </button>
+        <button type="button" class="play" onclick="playBtn()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+            <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
+          </svg>
+        </button>
+      </div>
+      <div class="btns">
+        <button type="button" onclick="prevBtn()">←</button>
+        <button type="button" onclick="nextBtn()">→</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+
+    let slideCount = 0;
+    let imgCount = document.querySelectorAll('.slideBox > ul > li');
+    let txtOn = document.querySelectorAll('.slideBox > ul > li .txt');
+    let count = document.querySelector('.count');
+    let btns = document.querySelectorAll('.btns button');
+
+    count.innerText = `${slideCount + 1} / ${imgCount.length}`
+    function addOn(){
+      imgCount.forEach((item) => {
+        item.classList.remove('on');
+      });
+      imgCount[slideCount].classList.add('on');
+      txtOn.forEach((txt) => {
+        txt.classList.remove('on');
+      });
+
+      let current = imgCount[slideCount].querySelector('.txt');
+      if(current){
+        current.classList.add('on');
+      }
+      count.innerText = `${slideCount + 1} / ${imgCount.length}`
+    }
+
+    function nextBtn() {
+      slideCount++;
+      if(slideCount > imgCount.length - 1){
+        slideCount = 0;
+      }
+      addOn();
+    }
+    function prevBtn() {
+      slideCount--;
+      if(slideCount < 0){
+        slideCount = imgCount.length - 1;
+      }
+      addOn();
+    }
+    
+
+    let set = setInterval(nextBtn, 3000);
+
+    function stopBtn() {
+      clearInterval(set);
+      document.querySelector('.stop').style.display = 'none';
+      document.querySelector('.play').style.display = 'block';
+    }
+    
+    function playBtn() {
+      set = setInterval(nextBtn, 3000);
+      document.querySelector('.play').style.display = 'none';
+      document.querySelector('.stop').style.display = 'block';
+    }
+
+    btns.forEach((item) => {
+      item.addEventListener('mouseenter', function(){
+        clearInterval(set);
+      });
+      item.addEventListener('mouseleave', function(){
+        set = setInterval(nextBtn, 3000);
+        if(document.querySelector('.play').style.display == 'block'){
+          clearInterval(set);
+        }
+      });
+    });
+
+  </script>
+
+</body>
+</html>
